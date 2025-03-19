@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Mevcut yapılandırmanızı buraya ekleyin
   reactStrictMode: true,
-  swcMinify: true,
-  // Diğer yapılandırmalar...
+  images: {
+    unoptimized: true,
+  },
+  // Tüm deneysel özellikleri kaldırıyoruz
+  // Sadece temel yapılandırmayı tutuyoruz
 };
 
 module.exports = nextConfig;

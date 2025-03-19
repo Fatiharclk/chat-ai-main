@@ -59,7 +59,7 @@
       "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
       "contentDispositionType": "attachment",
       "remotePatterns": [],
-      "unoptimized": false
+      "unoptimized": true
     },
     "devIndicators": {
       "position": "bottom-left"
@@ -280,8 +280,7 @@
     },
     "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.js",
-    "swcMinify": true
+    "configFileName": "next.config.js"
   },
   "appDir": "/Users/fatih/Desktop/React/chat-ai-main",
   "relativeAppDir": "",
