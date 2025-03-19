@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": ".",
+    "declaration": false,
+    "emitDeclarationOnly": false
+  },
+  "include": ["next.config.ts"]
+}

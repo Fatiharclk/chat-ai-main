@@ -167,30 +167,40 @@
   const closeButton = document.getElementById("chatbot-close");
   const chatWindow = document.getElementById("chatbot-window");
   const messagesContainer = document.getElementById("chatbot-messages");
-  const messageInput = document.getElementById("chatbot-message-input");
+  const messageInput = document.getElementById("chatbot-message-input") as HTMLInputElement;
   const sendButton = document.getElementById("chatbot-send");
 
   // Başlangıç mesajı
   addMessage("Merhaba! Size nasıl yardımcı olabilirim?", "bot");
 
   // Event listeners
-  toggleButton.addEventListener("click", () => {
-    chatWindow.classList.toggle("hidden");
-  });
+  if (toggleButton && chatWindow) {
+    toggleButton.addEventListener("click", () => {
+      chatWindow.classList.toggle("hidden");
+    });
+  }
 
-  closeButton.addEventListener("click", () => {
-    chatWindow.classList.add("hidden");
-  });
+  if (closeButton && chatWindow) {
+    closeButton.addEventListener("click", () => {
+      chatWindow.classList.add("hidden");
+    });
+  }
 
-  sendButton.addEventListener("click", sendMessage);
+  if (sendButton) {
+    sendButton.addEventListener("click", sendMessage);
+  }
 
-  messageInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
-  });
+  if (messageInput) {
+    messageInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        sendMessage();
+      }
+    });
+  }
 
-  function sendMessage() {
+  function sendMessage(): void {
+    if (!messageInput) return;
+    
     const message = messageInput.value.trim();
     if (!message) return;
 
@@ -206,7 +216,9 @@
     }, 1000);
   }
 
-  function addMessage(text, sender) {
+  function addMessage(text: string, sender: "user" | "bot"): void {
+    if (!messagesContainer) return;
+    
     const messageElement = document.createElement("div");
     messageElement.className = `message ${sender}-message`;
 
@@ -225,7 +237,7 @@
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
-  function getBotResponse(message) {
+  function getBotResponse(message: string): string {
     // Basit yanıt mantığı (gerçek uygulamada API kullanılabilir)
     message = message.toLowerCase();
 

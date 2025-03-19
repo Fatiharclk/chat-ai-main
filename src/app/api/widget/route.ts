@@ -1,4 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
@@ -6,7 +8,7 @@ import path from "path";
 let cachedWidget: string | null = null;
 let lastUpdated = 0;
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const now = Date.now();
     const cacheTime = 3600 * 1000; // 1 saat

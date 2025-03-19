@@ -10,7 +10,7 @@ export default function WidgetDemo() {
     const loadWidget = () => {
       // Önceden yüklenmiş bir widget varsa kaldır
       const existingWidget = document.getElementById("nextjs-chatbot-widget");
-      if (existingWidget) {
+      if (existingWidget && existingWidget.parentElement) {
         existingWidget.parentElement.removeChild(existingWidget);
       }
 
@@ -51,7 +51,10 @@ export default function WidgetDemo() {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-4">Chatbot Widget Demo</h1>
-      <p className="mb-4">Bu sayfada chatbot widget'ı test edilebilir.</p>
+      <p className="mb-4">
+        Bu sayfada &apos;chatbot-widget&apos; bileşeninin nasıl çalıştığını
+        görebilirsiniz.
+      </p>
 
       <div className="bg-gray-100 p-4 rounded-lg mb-4">
         <h2 className="text-lg font-semibold mb-2">Widget Entegrasyon Kodu</h2>
